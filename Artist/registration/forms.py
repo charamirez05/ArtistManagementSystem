@@ -40,4 +40,7 @@ class ActorForm(ModelForm):
 
 
 class Charot(ModelForm):
-    print("Hello World")
+    print("Hello World!")
+    print("hello po ako po si dodong kemriel, nag tumar ug koi herbal capsule, ang ako ma istorya lang jud kay epektibo jud sya")
+    print("Gusto ko nang bumitaaaaw")
+    print('wag naman po!')
