@@ -41,3 +41,4 @@ class ActorForm(ModelForm):
 
 class Charot(ModelForm):
     print("Hello World")
+    print("Gusto ko nang bumitaaaaw")
