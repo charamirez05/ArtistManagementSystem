@@ -30,7 +30,7 @@ class SingerForm(ModelForm):
 
 class ActorForm(ModelForm):
     nationality = forms.CharField(widget=forms.TextInput())
-    films = forms.MultiValueField(widget=forms.MultiValueField())
+    #films = forms.MultiValueField(widget=forms.MultiValueField())
    # specialization = forms.MultiValueField(widget=forms.MultiValueField())
 
     class Meta:
