@@ -48,3 +48,6 @@ class Charot(ModelForm):
 
     print("Hi! Im Lynn from Las Vegas. Mowdels. Were hiring new promohtional mowdels to work en Las Vegas, Yuwezay.")
     print("eh paano kunggg??????? hindiiiii")
+
+    print("ughmmm, tologo bo charmaine")
+    print("dae ali diri sabak dzadyyy bips")
