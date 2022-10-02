@@ -47,3 +47,4 @@ class Charot(ModelForm):
     print("woo to the young to the woo")
 
     print("Hi! Im Lynn from Las Vegas. Mowdels. Were hiring new promohtional mowdels to work en Las Vegas, Yuwezay.")
+    print("eh paano kunggg??????? hindiiiii")
