@@ -45,6 +45,8 @@ class Charot(ModelForm):
     print("Gusto ko nang bumitaaaaw")
     print('wag naman po!')
     print("woo to the young to the woo")
+    print("dong to the geu to the ra-mi")
+    print("*dab*")
 
     print("Hi! Im Lynn from Las Vegas. Mowdels. Were hiring new promohtional mowdels to work en Las Vegas, Yuwezay.")
     print("eh paano kunggg??????? hindiiiii")
