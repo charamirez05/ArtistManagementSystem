@@ -3,7 +3,7 @@ from django import forms
 
 from .models import Artist
 
-
+#Hello uyst welcome to my vlog
 class ArtistForm(ModelForm):
     ArtistName = forms.CharField(widget=forms.TextInput())
     DebutDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
