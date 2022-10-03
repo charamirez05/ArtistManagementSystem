@@ -37,3 +37,10 @@ class ActorForm(ModelForm):
     class Meta:
         model = Artist
         fields = ['nationality']
+
+
+class SoloArtistForm(ModelForm):
+    print()
+
+class GroupArtistForm(ModelForm):
+    print()
