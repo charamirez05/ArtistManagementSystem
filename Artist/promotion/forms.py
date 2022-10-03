@@ -17,7 +17,7 @@ class SingerForm(ModelForm):
 
 class PlatformForm(ModelForm):
     PlatformName = forms.CharField(widget=forms.TextInput())
-    YearEstablished = forms.CharField(widget=forms.NumberInput())
+    YearEstablished = forms.CharField(widget=forms.DateInput())
     Ranking = forms.CharField(widget=forms.NumberInput())
 
     class Meta:
