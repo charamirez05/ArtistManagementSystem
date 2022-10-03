@@ -3,6 +3,7 @@ from django import forms
 
 from .models import Artist
 
+
 #Hello uyst welcome to my vlog
 class ArtistForm(ModelForm):
     ArtistName = forms.CharField(widget=forms.TextInput())
@@ -38,7 +39,6 @@ class ActorForm(ModelForm):
         fields = ['nationality']
 
 
-
 class Charot(ModelForm):
     print("Hello World!")
     print("hello po ako po si dodong kemriel, nag tumar ug koi herbal capsule, ang ako ma istorya lang jud kay epektibo jud sya")
@@ -54,5 +54,6 @@ class Charot(ModelForm):
     print("ughmmm, tologo bo charmaine")
     print("dae ali diri sabak dzadyyy bips")
     print("try ra ni balik - ariel")
+    print("Java Certification Exam - CodeChum, This will be on October 8, 2022")
 
     print("Let's roll the dicceeeeee!!!")
