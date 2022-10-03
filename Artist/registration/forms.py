@@ -53,3 +53,4 @@ class Charot(ModelForm):
 
     print("ughmmm, tologo bo charmaine")
     print("dae ali diri sabak dzadyyy bips")
+    print("try ra ni balik - ariel")
