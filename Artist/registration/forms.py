@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from django import forms
 
-from .models import Artist
+from .models import Artist, Singer
 
 
 #Hello uyst welcome to my vlog
@@ -25,7 +25,7 @@ class SingerForm(ModelForm):
     IsGroup = forms.CharField(widget=forms.CheckboxSelectMultiple())
 
     class Meta:
-        model = Artist
+        model = Singer
         fields = ['Genre', 'FandomName', 'IsSolo', 'IsGroup']
 
 

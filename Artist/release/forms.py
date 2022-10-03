@@ -1,6 +1,7 @@
 from django.forms import ModelForm
 from django import forms
 
+from .models import Artist, Albums, Singles
 
 class SingerForm(ModelForm):
     Genre = forms.CharField(widget=forms.TextInput())
@@ -21,7 +22,7 @@ class AlbumForm(ModelForm):
     #SongIncluded
 
     class Meta:
-        model = Album
+        model = Albums
         fields = ['albumName', 'releasedDate', 'genre', 'dateRecorded']
 
 
