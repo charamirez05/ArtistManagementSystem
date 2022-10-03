@@ -3,6 +3,7 @@ from django import forms
 
 from .models import Artist, Albums, Singles
 
+
 class SingerForm(ModelForm):
     Genre = forms.CharField(widget=forms.TextInput())
     FandomName = forms.CharField(widget=forms.TextInput())
