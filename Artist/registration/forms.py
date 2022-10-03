@@ -43,4 +43,4 @@ class SoloArtistForm(ModelForm):
     print()
 
 class GroupArtistForm(ModelForm):
-    print()
+    print("WA GYUD GI EXTEND ANG CONTRACT SA IZ*ONE GRRR DISAPPOINTED KO >:<<")
