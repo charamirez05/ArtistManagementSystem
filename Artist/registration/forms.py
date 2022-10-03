@@ -37,23 +37,3 @@ class ActorForm(ModelForm):
     class Meta:
         model = Artist
         fields = ['nationality']
-
-
-class Charot(ModelForm):
-    print("Hello World!")
-    print("hello po ako po si dodong kemriel, nag tumar ug koi herbal capsule, ang ako ma istorya lang jud kay epektibo jud sya")
-    print("Gusto ko nang bumitaaaaw")
-    print('wag naman po!')
-    print("woo to the young to the woo")
-    print("dong to the geu to the ra-mi")
-    print("*dab*")
-
-    print("Hi! Im Lynn from Las Vegas. Mowdels. Were hiring new promohtional mowdels to work en Las Vegas, Yuwezay.")
-    print("eh paano kunggg??????? hindiiiii")
-
-    print("ughmmm, tologo bo charmaine")
-    print("dae ali diri sabak dzadyyy bips")
-    print("try ra ni balik - ariel")
-    print("Java Certification Exam - CodeChum, This will be on October 8, 2022")
-
-    print("Let's roll the dicceeeeee!!!")
