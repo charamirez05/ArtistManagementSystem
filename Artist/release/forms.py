@@ -5,6 +5,7 @@ from django import forms
 class SingerForm(ModelForm):
     print()
 
+
 class AlbumForm(ModelForm):
     print()
 
