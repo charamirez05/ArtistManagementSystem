@@ -5,15 +5,26 @@ from .forms import AlbumForm, SingerForm, SinglesForm
 # Create your views here.
 
 
-class ReleaseView(View):
+class AlbumView(View):
     template = 'released.html'
 
     def get(self, request):
-        form = ReleaseForm()
+        form = AlbumForm()
         return render(request, self.template, {'form': form})
 
     def post(self, request):
-        form = ReleaseForm(request.POST)
+        form = AlbumForm(request.POST)
+        if form.is_valid():
+            form.save()
+            #return redirect(reverse('registration:index'))
+        return render(request, self.template, {'form': form})
+class SinglesView(View):
+    def get(self, request):
+        form = SinglesForm()
+        return render(request, self.template, {'form': form})
+
+    def post(self, request):
+        form = SinglesForm(request.POST)
         if form.is_valid():
             form.save()
             #return redirect(reverse('registration:index'))
