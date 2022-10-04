@@ -16,16 +16,20 @@ class AlbumView(View):
         form = AlbumForm(request.POST)
         if form.is_valid():
             form.save()
-            #return redirect(reverse('registration:index'))
+            # return redirect(reverse('registration:index'))
         return render(request, self.template, {'form': form})
+
+
 class SinglesView(View):
+    template = 'released.html'
+
     def get(self, request):
         form = SinglesForm()
         return render(request, self.template, {'form': form})
 
     def post(self, request):
-        form = SinglesForm(request.POST)
+        form = SingerForm(request.POST)
         if form.is_valid():
             form.save()
-            #return redirect(reverse('registration:index'))
+            # return redirect(reverse('registration:index'))
         return render(request, self.template, {'form': form})
