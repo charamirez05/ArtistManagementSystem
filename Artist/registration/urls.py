@@ -8,7 +8,7 @@ urlpatterns =[
     path('createArtist', views.ArtistView.as_view(), name='createNewArtist'),
     path('createSinger', views.SingerView.as_view(), name='createNewSinger'),
     path('createActor', views.ActorView.as_view(), name='createNewActor'),
-    #path('createSingerActor', views.SingerActorView.as_view(), name='createNewSingerActor'),
+    path('createSingerActor', views.SingerActorView.as_view(), name='createNewSingerActor'),
     #path('createSoloArtist', views.SoloArtistView.as_view(), name='createNewSoloArtist'),
     #path('createGroupArtist', views.GroupArtistView.as_view(), name='createNewGroupArtist'),
 ]

@@ -4,7 +4,7 @@ from django import forms
 from .models import Artist, Singer, Actor
 
 
-#Hello uyst welcome to my vlog
+
 class ArtistForm(ModelForm):
     ArtistName = forms.CharField(widget=forms.TextInput())
     DebutDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
@@ -21,8 +21,8 @@ class ArtistForm(ModelForm):
 class SingerForm(ModelForm):
     Genre = forms.CharField(widget=forms.TextInput())
     FandomName = forms.CharField(widget=forms.TextInput())
-    IsSolo = forms.CharField(widget=forms.CheckboxSelectMultiple())
-    IsGroup = forms.CharField(widget=forms.CheckboxSelectMultiple())
+    IsSolo = forms.CheckboxSelectMultiple()
+    IsGroup = forms.CheckboxSelectMultiple()
 
     class Meta:
         model = Singer
@@ -37,6 +37,7 @@ class ActorForm(ModelForm):
     class Meta:
         model = Actor
         fields = ['nationality']
+
 
 class SoloArtistForm(ModelForm):
     StageName = forms.CharField(widget=forms.TextInput())
