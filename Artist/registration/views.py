@@ -27,32 +27,3 @@ class ArtistView(View):
         return render(request, self.template, {'form': form})
 
 
-class SingerView(View):
-    template = 'createSinger.html'
-
-    def get(self, request):
-        form = SingerForm()
-        return render(request, self.template, {'form': form})
-
-
-    def post(self, request):
-        form = SingerForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect(reverse('registration:index'))
-        return render(request, self.template, {'form': form})
-
-
-class ActorView(View):
-    template = 'createActor.html'
-
-    def get(self, request):
-        form = ActorForm()
-        return render(request, self.template, {'form': form})
-
-    def post(self, request):
-        form = ActorForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect(reverse('registration:index'))
-        return render(request, self.template, {'form': form})
