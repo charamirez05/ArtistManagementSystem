@@ -56,3 +56,6 @@ class ActorView(View):
             form.save()
             return redirect(reverse('registration:index'))
         return render(request, self.template, {'form': form})
+
+
+    #kekekek
