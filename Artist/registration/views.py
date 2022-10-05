@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.views import View
 from .forms import ArtistForm, SingerForm, ActorForm
 
+
 # Create your views here.
 
 class HomeView(View):
@@ -17,16 +18,21 @@ class ArtistView(View):
 
     def get(self, request):
         formArtist = ArtistForm()
+       # formArtist = SingerForm()
         return render(request, self.template, {'formArtist': formArtist})
 
     def post(self, request):
         formArtist = ArtistForm(request.POST)
-        isSinger1 = request.POST.get('isSinger', False)
+        isSinger = request.POST.get('isSinger', False)
         isActor = request.POST.get('isActor', False)
         if formArtist.is_valid():
             formArtist.save()
-            #if isActor == 'on':
-            return redirect(reverse('registration:createActor'))
+            if isActor == 'on':
+                return redirect(reverse('registration:createNewActor'))
+            elif isSinger == 'on':
+                return redirect(reverse('registration:createNewSinger'))
+            #elif isSinger == 'on' and isActor == 'on':
+            #    return redirect(reverse('registration:createNewSingerActor'))
         return render(request, self.template, {'formArtist': formArtist})
 
 
@@ -56,8 +62,22 @@ class ActorView(View):
         formActor = ActorForm(request.POST)
         if formActor.is_valid():
             formActor.save()
-            return redirect(reverse('registration:index'))
+            #return redirect(reverse('registration:index'))
         return render(request, self.template, {'formActor': formActor})
+
+'''class SingerActorView(View):
+    template = 'createSingerActor.html'
+
+    def get(self, request):
+        formActor = SingerActorForm()
+        return render(request, self.template, {'formActor': formActor})
+
+    def post(self, request):
+        formActor = ActorForm(request.POST)
+        if formActor.is_valid():
+            formActor.save()
+            #return redirect(reverse('registration:index'))
+        return render(request, self.template, {'formActor': formActor})'''
 
 
     #kekekek

@@ -1,7 +1,7 @@
 from django.forms import ModelForm, MultiWidget
 from django import forms
 
-from .models import Artist, Singer
+from .models import Artist, Singer, Actor
 
 
 #Hello uyst welcome to my vlog
@@ -35,9 +35,8 @@ class ActorForm(ModelForm):
    # specialization =forms.MultiValueField(widget=forms.MultiValueField())
 
     class Meta:
-        model = Artist
+        model = Actor
         fields = ['nationality']
-
 
 class SoloArtistForm(ModelForm):
     StageName = forms.CharField(widget=forms.TextInput())
