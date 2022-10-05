@@ -20,20 +20,20 @@ class Singer(Artist):
 
 
 class Singles(models.Model):
-    SingleID = models.AutoField(primary_key=True)
-    SingleName = models.CharField(max_length=30)
-    RecordedDate = models.DateField()
-    ReleasedDate = models.DateField()
-    Genre = models.CharField(max_length=20)
-    Composer = models.CharField(max_length=30)
-    Producer = models.CharField(max_length=30)
-    Singer = models.ForeignKey(Singer, on_delete=models.CASCADE)
+    singleID = models.AutoField(primary_key=True)
+    singleName = models.CharField(max_length=30)
+    recordedDate = models.DateField()
+    releasedDate = models.DateField()
+    genre = models.CharField(max_length=20)
+    composer = models.CharField(max_length=30)
+    producer = models.CharField(max_length=30)
+    singer = models.ForeignKey(Singer, on_delete=models.CASCADE)
 
 
 class Albums(models.Model):
     albumID = models.AutoField(primary_key=True)
     albumName = models.CharField(max_length=30)
-    releaseDate = models.DateField()
+    releasedDate = models.DateField()
     genre = models.CharField(max_length=30)
     dateRecorded = models.DateField()
     singles = models.ManyToManyField(Singles)

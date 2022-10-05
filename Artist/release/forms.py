@@ -28,12 +28,12 @@ class AlbumForm(ModelForm):
 
 
 class SinglesForm(ModelForm):
-    SingleName = forms.CharField(widget=forms.TextInput())
-    RecordedDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
-    ReleasedDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
-    Genre = forms.CharField(widget=forms.TextInput())
-    Producer= forms.CharField(widget=forms.TextInput())
-    Composer = forms.CharField(widget=forms.TextInput())
+    singleName = forms.CharField(widget=forms.TextInput())
+    recordedDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
+    releasedDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
+    genre = forms.CharField(widget=forms.TextInput())
+    producer= forms.CharField(widget=forms.TextInput())
+    composer = forms.CharField(widget=forms.TextInput())
 
     class Meta:
         model = Singles

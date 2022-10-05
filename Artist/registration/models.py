@@ -78,7 +78,7 @@ class Singles(models.Model):
 class Albums(models.Model):
     albumID = models.AutoField(primary_key=True)
     albumName = models.CharField(max_length=30)
-    releaseDate = models.DateField()
+    releasedDate = models.DateField()
     genre = models.CharField(max_length=30)
     dateRecorded = models.DateField()
     singles = models.ManyToManyField(Singles)

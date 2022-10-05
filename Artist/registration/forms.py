@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, MultiWidget
 from django import forms
 
 from .models import Artist, Singer
@@ -31,7 +31,7 @@ class SingerForm(ModelForm):
 
 class ActorForm(ModelForm):
     nationality = forms.CharField(widget=forms.TextInput())
-    #films = forms.MultiValueField(widget=forms.MultiValueField())
+   # films = forms.CharField(widget=forms.TextInput())
    # specialization =forms.MultiValueField(widget=forms.MultiValueField())
 
     class Meta:
@@ -40,7 +40,27 @@ class ActorForm(ModelForm):
 
 
 class SoloArtistForm(ModelForm):
-    print()
+    StageName = forms.CharField(widget=forms.TextInput())
+
+    class Meta:
+        model = Artist
+        fields = ['StageName']
+
+    '''class Instruments(models.Model):
+        soloArtist = models.ForeignKey(SoloArtist, on_delete=models.CASCADE)
+        instruments = models.CharField(max_length=30)'''
+
 
 class GroupArtistForm(ModelForm):
-    print("WA GYUD GI EXTEND ANG CONTRACT SA IZ*ONE GRRR DISAPPOINTED KO >:<<")
+    dateFormed = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
+
+    class Meta:
+        model = Artist
+        fields = ['dateFormed']
+
+    '''class GroupMembers(models.Model):
+        GroupArtist = models.ForeignKey(GroupArtist, on_delete=models.CASCADE)
+        GroupMembers = models.CharField(max_length=100)
+
+        class Meta:
+            unique_together = ('GroupArtist', 'GroupMembers')'''
