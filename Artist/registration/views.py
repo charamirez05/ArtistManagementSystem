@@ -31,31 +31,30 @@ class SingerView(View):
     template = 'createSinger.html'
 
     def get(self, request):
-        form = SingerForm()
-        return render(request, self.template, {'form': form})
-
+        formSinger = SingerForm()
+        return render(request, self.template, {'formSinger': formSinger})
 
     def post(self, request):
-        form = SingerForm(request.POST)
-        if form.is_valid():
-            form.save()
+        formSinger = SingerForm(request.POST)
+        if formSinger.is_valid():
+            formSinger.save()
             return redirect(reverse('registration:index'))
-        return render(request, self.template, {'form': form})
+        return render(request, self.template, {'formSinger': formSinger})
 
 
 class ActorView(View):
     template = 'createActor.html'
 
     def get(self, request):
-        form = ActorForm()
-        return render(request, self.template, {'form': form})
+        formActor = ActorForm()
+        return render(request, self.template, {'formActor': formActor})
 
     def post(self, request):
-        form = ActorForm(request.POST)
-        if form.is_valid():
-            form.save()
+        formActor = ActorForm(request.POST)
+        if formActor.is_valid():
+            formActor.save()
             return redirect(reverse('registration:index'))
-        return render(request, self.template, {'form': form})
+        return render(request, self.template, {'formActor': formActor})
 
 
     #kekekek
