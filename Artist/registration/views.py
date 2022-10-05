@@ -16,15 +16,15 @@ class ArtistView(View):
     template = 'createArtist.html'
 
     def get(self, request):
-        form = ArtistForm()
-        return render(request, self.template, {'form': form})
+        formArtist = ArtistForm()
+        return render(request, self.template, {'formArtist': formArtist})
 
     def post(self, request):
-        form = ArtistForm(request.POST)
-        if form.is_valid():
-            form.save()
+        formArtist = ArtistForm(request.POST)
+        if formArtist.is_valid():
+            formArtist.save()
             return redirect(reverse('registration:index'))
-        return render(request, self.template, {'form': form})
+        return render(request, self.template, {'formArtist': formArtist})
 
 
 class SingerView(View):
