@@ -21,9 +21,12 @@ class ArtistView(View):
 
     def post(self, request):
         formArtist = ArtistForm(request.POST)
+        isSinger1 = request.POST.get('isSinger', False)
+        isActor = request.POST.get('isActor', False)
         if formArtist.is_valid():
             formArtist.save()
-            return redirect(reverse('registration:index'))
+            #if isActor == 'on':
+            return redirect(reverse('registration:createActor'))
         return render(request, self.template, {'formArtist': formArtist})
 
 
