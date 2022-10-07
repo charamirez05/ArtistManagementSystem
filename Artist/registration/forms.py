@@ -5,8 +5,10 @@ from .models import Artist, Singer, Actor
 
 
 
-class ArtistForm(ModelForm):
+'''class ArtistForm(ModelForm):
     ArtistName = forms.CharField(widget=forms.TextInput())
+    username = forms.CharField(widget=forms.TextInput())
+    password = forms.CharField(widget=forms.PasswordInput())
     # = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
     YearsActive = forms.CharField(widget=forms.NumberInput())
     isActor = forms.CheckboxSelectMultiple()
@@ -15,7 +17,7 @@ class ArtistForm(ModelForm):
 
     class Meta:
         model = Artist
-        fields = ['ArtistName', 'YearsActive', 'isActor', 'isSinger']
+        fields = ['ArtistName', 'username', 'password', 'YearsActive', 'isActor', 'isSinger']'''
 
 
 class SingerForm(ModelForm):
@@ -26,25 +28,34 @@ class SingerForm(ModelForm):
                  ('T', 'Techno'), ('IR', 'Indie Rock'), ('G', 'Grunge'), ('A', 'Ambient'),
                  ('R', 'Reggae'), ('S', 'Soul'), ('F', 'Funk'), ('R', 'Reggae'), ('G', 'Gospel'),
                  ('LM', 'Latin Music'), ('GM', 'Grime'), ('T', 'Trap'), ('PK', 'Psychedelic Rock'))
+    username = forms.CharField(widget=forms.TextInput())
+    password = forms.CharField(widget=forms.PasswordInput())
+    ArtistName = forms.CharField(widget=forms.TextInput())
+    YearsActive = forms.CharField(widget=forms.NumberInput())
     Genre = forms.CharField(widget=forms.Select(choices=genreList))
     FandomName = forms.CharField(widget=forms.TextInput())
+    isSinger = True
     IsSolo = forms.CheckboxSelectMultiple()
     IsGroup = forms.CheckboxSelectMultiple()
 
     class Meta:
         model = Singer
-        fields = ['Genre', 'FandomName', 'IsSolo', 'IsGroup']
+        fields = ['username', 'password', 'YearsActive', 'ArtistName', 'Genre', 'FandomName', 'IsSolo', 'IsGroup']
 
 
 class ActorForm(ModelForm):
     specializationList = (('T', 'Theatre Acting'), ('TV', 'TV Acting'), ('F', 'Film Acting'), ('VO', 'Voice Over Acting'),
                           ('C', 'Commercials Acting'), ('EB', 'Extra/Background Acting'))
+    username = forms.CharField(widget=forms.TextInput())
+    password = forms.CharField(widget=forms.PasswordInput())
+    ArtistName = forms.CharField(widget=forms.TextInput())
+    YearsActive = forms.CharField(widget=forms.NumberInput())
     specialization = forms.CharField(widget=forms.Select(choices=specializationList))
     nationality = forms.CharField(widget=forms.TextInput())
 
     class Meta:
         model = Actor
-        fields = ['nationality', 'specialization']
+        fields = ['username', 'password', 'YearsActive', 'ArtistName', 'nationality', 'specialization']
 
 
 class SoloArtistForm(ModelForm):

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
-from .forms import ArtistForm, SingerForm, ActorForm, SoloArtistForm, GroupArtistForm
+from .forms import SingerForm, ActorForm, SoloArtistForm, GroupArtistForm
 from .models import Artist
 
 
@@ -14,7 +14,7 @@ class HomeView(View):
         return render(request, self.template)
 
 
-class ArtistView(View):
+'''class ArtistView(View):
     template = 'createArtist.html'
 
     def get(self, request):
@@ -37,7 +37,7 @@ class ArtistView(View):
             if isSinger == 'on':
                 return redirect(reverse('registration:createNewSinger'))
         return render(request, self.template, {'formArtist': formArtist})
-
+'''
 
 class SingerView(View):
     template = 'createSinger.html'
