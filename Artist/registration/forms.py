@@ -7,15 +7,15 @@ from .models import Artist, Singer, Actor
 
 class ArtistForm(ModelForm):
     ArtistName = forms.CharField(widget=forms.TextInput())
-    DebutDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
+    # = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
     YearsActive = forms.CharField(widget=forms.NumberInput())
     isActor = forms.CheckboxSelectMultiple()
     isSinger = forms.CheckboxSelectMultiple()
-    Birthdate = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
+   # Birthdate = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
 
     class Meta:
         model = Artist
-        fields = ['ArtistName', 'DebutDate', 'YearsActive', 'isActor', 'isSinger', 'Birthdate']
+        fields = ['ArtistName', 'YearsActive', 'isActor', 'isSinger']
 
 
 class SingerForm(ModelForm):

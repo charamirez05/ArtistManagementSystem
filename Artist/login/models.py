@@ -15,6 +15,7 @@ class Artist(models.Model):
     #Birthdate = models.DateField(null=False)
 
 
+
 class Singer(Artist):
     genreList = (('KP', 'KPop'), ('P', 'Pop'), ('HHR', 'Hip-Hop Rap'), ('C', 'Country'),
                  ('RB', 'Rhythm and Blues'), ('F', 'Folk'), ('J', 'Jazz'), ('HM', 'Heavy Metal'),
@@ -28,8 +29,9 @@ class Singer(Artist):
     IsSolo = models.BooleanField(default=False)
     IsGroup = models.BooleanField(default=False)
 
-class Platform(models.Model):
-    platformName = models.CharField(max_length=30, primary_key=True)
-    yearEstablished = models.BigIntegerField()
-    ranking = models.IntegerField()
-    singer = models.ManyToManyField(Singer)
+
+class Actor(Artist):
+    specializationList = (('T', 'Theatre Acting'), ('TV', 'TV Acting'), ('F', 'Film Acting'), ('VO', 'Voice Over Acting'),
+                 ('C', 'Commercials Acting'), ('EB', 'Extra/Background Acting'))
+    nationality = models.CharField(max_length=30)
+    specialization = models.CharField(max_length=3, choices=specializationList)

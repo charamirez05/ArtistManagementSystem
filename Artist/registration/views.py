@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
 from .forms import ArtistForm, SingerForm, ActorForm, SoloArtistForm, GroupArtistForm
+from .models import Artist
 
 
 # Create your views here.
@@ -22,17 +23,19 @@ class ArtistView(View):
 
     def post(self, request):
         formArtist = ArtistForm(request.POST)
+        artistName = request.POST['ArtistName']
+        yearsactive = request.POST['YearsActive']
         isSinger = request.POST.get('isSinger', False)
         isActor = request.POST.get('isActor', False)
+       # artist = Artist.objects.create(artistName = artistName, yearsactive = yearsactive, isActor = isActor, isSinger=isSinger)
         if formArtist.is_valid():
             formArtist.save()
             if isSinger == 'on' and isActor == 'on':
                 return redirect(reverse('registration:createNewSingerActor'))
             if isActor == 'on':
-                return redirect(reverse('registration:createNewActor'))
+                return redirect('registration:createNewActor')
             if isSinger == 'on':
                 return redirect(reverse('registration:createNewSinger'))
-
         return render(request, self.template, {'formArtist': formArtist})
 
 
@@ -49,15 +52,15 @@ class SingerView(View):
         isGroup = request.POST.get('isGroup', False)
         if formSinger.is_valid():
             formSinger.save()
-            return redirect(reverse('registration:index'))
-        return render(request, self.template, {'formSinger': formSinger})
-
-'''if isSolo == 'on' and isGroup == 'on':
+            if isSolo == 'on' and isGroup == 'on':
                 return redirect(reverse('registration:createSoloGroup'))
             if isGroup == 'on':
                 return redirect(reverse('registration:createGroup'))
             if isSolo == 'on':
-                return redirect(reverse('registration:createSolo'))'''
+                return redirect(reverse('registration:createSolo'))
+            #return redirect(reverse('registration:index'))
+        return render(request, self.template, {'formSinger': formSinger})
+
 
 class ActorView(View):
     template = 'createActor.html'
@@ -130,6 +133,29 @@ class SoloGroupView(View):
             formActor.save()
             #return redirect(reverse('registration:index'))
         return render(request, self.template, {'formActor': formActor})
+
+
+
+class LoginView(View):
+    template = 'login.html'
+
+    def get(self, request):
+        return render(request, self.template)
+
+    def post(self, request):
+        uname = request.POST['username']
+        pwd = request.POST['password']
+
+        try:
+            user = Artist.objects.get(pk=uname)
+            if user.password == pwd:
+                request.session['username'] = user.username
+                request.session['type'] = user.type
+                return redirect(reverse('registration:index'))
+        except Artist.DoesNotExist:
+            user = None
+
+        return render(request, self.template,{'msg':'Incorrect username/ password.'})
 
 
 

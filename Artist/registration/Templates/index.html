@@ -5,7 +5,13 @@
     <title>Artist</title>
 </head>
 <body>
-  <a href = "{% url 'registration:createNewArtist' %}"> Add New Artist</a>
+    <h1> Artist </h1>
+    <p>
+        <a href = "{% url 'login:login' %}"> Log-In as Artist</a>
+    </p>
+    <p>
+        <a href = "{% url 'registration:createNewArtist' %}"> Register as New Artist</a>
+    </p>
 
 </body>
 </html>

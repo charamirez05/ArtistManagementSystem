@@ -5,10 +5,10 @@
     <title>Create New Artist</title>
 </head>
 <body>
+    <h1>Add New Artist</h1>
         <form action="" method="post">
             {% csrf_token %}
             {{formArtist.as_p}}
-            {{formSinger.as_p}}
             <input type="submit" value="Add">
         </form>
 
