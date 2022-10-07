@@ -19,7 +19,14 @@ class ArtistForm(ModelForm):
 
 
 class SingerForm(ModelForm):
-    Genre = forms.CharField(widget=forms.TextInput())
+    genreList = (('KP', 'KPop'), ('P', 'Pop'), ('HHR', 'Hip-Hop Rap'), ('C', 'Country'),
+                 ('RB', 'Rhythm and Blues'), ('F', 'Folk'), ('J', 'Jazz'), ('HM', 'Heavy Metal'),
+                 ('EDM', 'Electronic Dance Music'), ('S', 'Soul'), ('F', 'Funk'), ('R', 'Reggae'),
+                 ('D', 'Disco'), ('PR', 'Punk Rock'), ('CL', 'Classical'), ('H', 'House'),
+                 ('T', 'Techno'), ('IR', 'Indie Rock'), ('G', 'Grunge'), ('A', 'Ambient'),
+                 ('R', 'Reggae'), ('S', 'Soul'), ('F', 'Funk'), ('R', 'Reggae'), ('G', 'Gospel'),
+                 ('LM', 'Latin Music'), ('GM', 'Grime'), ('T', 'Trap'), ('PK', 'Psychedelic Rock'))
+    Genre = forms.CharField(widget=forms.Select(choices=genreList))
     FandomName = forms.CharField(widget=forms.TextInput())
     IsSolo = forms.CheckboxSelectMultiple()
     IsGroup = forms.CheckboxSelectMultiple()
@@ -30,13 +37,14 @@ class SingerForm(ModelForm):
 
 
 class ActorForm(ModelForm):
+    specializationList = (('T', 'Theatre Acting'), ('TV', 'TV Acting'), ('F', 'Film Acting'), ('VO', 'Voice Over Acting'),
+                          ('C', 'Commercials Acting'), ('EB', 'Extra/Background Acting'))
+    specialization = forms.CharField(widget=forms.Select(choices=specializationList))
     nationality = forms.CharField(widget=forms.TextInput())
-   # films = forms.CharField(widget=forms.TextInput())
-   # specialization =forms.MultiValueField(widget=forms.MultiValueField())
 
     class Meta:
         model = Actor
-        fields = ['nationality']
+        fields = ['nationality', 'specialization']
 
 
 class SoloArtistForm(ModelForm):
