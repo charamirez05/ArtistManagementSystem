@@ -3,23 +3,6 @@ from django import forms
 
 from .models import Artist, Singer, Actor
 
-
-
-'''class ArtistForm(ModelForm):
-    ArtistName = forms.CharField(widget=forms.TextInput())
-    username = forms.CharField(widget=forms.TextInput())
-    password = forms.CharField(widget=forms.PasswordInput())
-    # = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
-    YearsActive = forms.CharField(widget=forms.NumberInput())
-    isActor = forms.CheckboxSelectMultiple()
-    isSinger = forms.CheckboxSelectMultiple()
-   # Birthdate = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
-
-    class Meta:
-        model = Artist
-        fields = ['ArtistName', 'username', 'password', 'YearsActive', 'isActor', 'isSinger']'''
-
-
 class SingerForm(ModelForm):
     genreList = (('KP', 'KPop'), ('P', 'Pop'), ('HHR', 'Hip-Hop Rap'), ('C', 'Country'),
                  ('RB', 'Rhythm and Blues'), ('F', 'Folk'), ('J', 'Jazz'), ('HM', 'Heavy Metal'),
@@ -34,7 +17,7 @@ class SingerForm(ModelForm):
     YearsActive = forms.CharField(widget=forms.NumberInput())
     Genre = forms.CharField(widget=forms.Select(choices=genreList))
     FandomName = forms.CharField(widget=forms.TextInput())
-    isSinger = True
+    isSinger = ('isSinger', False)
     IsSolo = forms.CheckboxSelectMultiple()
     IsGroup = forms.CheckboxSelectMultiple()
 
