@@ -2,21 +2,111 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login Artist</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: montserrat;
+            background: linear-gradient(120deg, #2980b9, #8e44ad);
+            height: 100vh;
+            overflow: hidden;
+        }
+        .center{
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background: white;
+            border-radius: 10px;
+        }
+        form{
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+        .center h3{
+            font-family: montserrat;
+            font-size: 180%;
+            text-align: center;
+            padding: 0 0 20px 0;
+            border-bottom: 1px solid silver;
+        }
+        form .txt_field{
+            position: relative;
+            border-bottom: 2px solid #adadad;
+            margin: 30px 0;
+        }
+
+        .txt_field input{
+            width: 100%;
+            padding: 0 5px;
+            height: 4-px;
+            font-size: 16px;
+            border: none;
+            background: none;
+            outline: none;
+        }
+
+        .txt_field label{
+            position: absolute;
+            top: 50px;
+            left: 5px;
+            color: #adadad;
+            transform: translateY(-50px);
+            font-size: 15px;
+            pointer-events: none;
+            transition: .3s;
+        }
+
+        .txt_field span::before{
+            content: '';
+            position: absolute;
+            top: 19.5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #2691d9;
+        }
+        .txt_field input:focus~label,
+        .txt_field input:valid~label{
+            top: 25px;
+            color: #2691d9;
+        }
+        .txt_field input:focus~span::before,
+        .txt_field input:valid~span::before{
+            width: 100%;
+        }
+        input[type="submit"]{
+            position: relative;
+            width: 80%;
+            height: 50px;
+            top: -15px;
+            left: 30px;
+            border: 1px solid;
+            border-radius: 25px;
+            background: #2691d9;
+            font-family: arial;
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body>
-<div>
-    {% if msg != '' %}
-        {{msg}}
-    {% endif %}
-</div>
-    <form method="post">
+    <div class="center">
+        <h3>Log in as Artist</h3>
+        <form method="post">
         {% csrf_token %}
-        <pre style="font-family:arial">
-            <input type="text" name="username" placeholder="Username">
-            <input type="password" name="password" placeholder="Password">
-            <input type="submit" value="login">
-        </pre>
+            <div class="txt_field">
+            <input type="text" name="username" required><label>Username</label>
+                <span></span>
+            </div>
+            <div class="txt_field">
+            <input type="password" name="password" required><label>Password</label>
+                <span></span>
+            </div>
+            <input type="submit" value="Sign in">
     </form>
+    </div>
+
 </body>
 </html>
