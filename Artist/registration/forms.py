@@ -1,7 +1,24 @@
-from django.forms import ModelForm, MultiWidget
+from django.forms import ModelForm, MultiWidget, HiddenInput
 from django import forms
 
 from .models import Artist, Singer, Actor
+
+
+
+'''class ArtistForm(ModelForm):
+    ArtistName = forms.CharField(widget=forms.TextInput())
+    username = forms.CharField(widget=forms.TextInput())
+    password = forms.CharField(widget=forms.PasswordInput())
+    # = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
+    YearsActive = forms.CharField(widget=forms.NumberInput())
+    isActor = forms.CheckboxSelectMultiple()
+    isSinger = forms.CheckboxSelectMultiple()
+   # Birthdate = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
+
+    class Meta:
+        model = Artist
+        fields = ['ArtistName', 'username', 'password', 'YearsActive', 'isActor', 'isSinger']'''
+
 
 class SingerForm(ModelForm):
     genreList = (('KP', 'KPop'), ('P', 'Pop'), ('HHR', 'Hip-Hop Rap'), ('C', 'Country'),
@@ -17,13 +34,15 @@ class SingerForm(ModelForm):
     YearsActive = forms.CharField(widget=forms.NumberInput())
     Genre = forms.CharField(widget=forms.Select(choices=genreList))
     FandomName = forms.CharField(widget=forms.TextInput())
-    isSinger = ('isSinger', False)
+    isSinger = forms.BooleanField(widget=forms.HiddenInput(), required=False, initial=True)
     IsSolo = forms.CheckboxSelectMultiple()
     IsGroup = forms.CheckboxSelectMultiple()
 
     class Meta:
         model = Singer
-        fields = ['username', 'password', 'YearsActive', 'ArtistName', 'Genre', 'FandomName', 'IsSolo', 'IsGroup']
+        fields = ['username', 'password', 'YearsActive', 'ArtistName', 'Genre', 'isSinger', 'FandomName', 'IsSolo', 'IsGroup']
+
+
 
 
 class ActorForm(ModelForm):
@@ -33,12 +52,13 @@ class ActorForm(ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
     ArtistName = forms.CharField(widget=forms.TextInput())
     YearsActive = forms.CharField(widget=forms.NumberInput())
+    isActor = forms.BooleanField(widget=forms.HiddenInput(), required=False, initial=True)
     specialization = forms.CharField(widget=forms.Select(choices=specializationList))
     nationality = forms.CharField(widget=forms.TextInput())
 
     class Meta:
         model = Actor
-        fields = ['username', 'password', 'YearsActive', 'ArtistName', 'nationality', 'specialization']
+        fields = ['username', 'password', 'YearsActive', 'ArtistName', 'isActor', 'nationality', 'specialization']
 
 
 class SoloArtistForm(ModelForm):

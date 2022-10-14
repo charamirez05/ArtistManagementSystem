@@ -8,8 +8,8 @@ class Artist(models.Model):
     ArtistName = models.CharField(max_length=30, null=False)
     password = models.CharField(max_length=30, null=False)
     YearsActive = models.IntegerField(default=1, null=False)
-    isActor = models.BooleanField(default=False)
-    isSinger = models.BooleanField(default=False) #mo redirect sa lain html
+    isActor = models.BooleanField(default=0)
+    isSinger = models.BooleanField(default=0) #mo redirect sa lain html
 
 
 

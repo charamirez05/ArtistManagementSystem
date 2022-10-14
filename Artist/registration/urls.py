@@ -12,4 +12,6 @@ urlpatterns =[
     path('createSolo', view.SoloArtistView.as_view(), name='createNewSoloArtist'),
     path('createGroup', view.GroupArtistView.as_view(), name='createNewGroupArtist'),
     path('createSoloGroup', view.SoloArtistView.as_view(), name='createNewSoloGroupArtist'),
+    path('artistlogin', view.LoginView.as_view(), name='login'),
+
 ]

@@ -8,7 +8,7 @@ from.models import Artist
 # Create your views here.
 
 
-class LoginView(View):
+'''class LoginView(View):
     template = 'login.html'
 
     def get(self, request):
@@ -19,13 +19,14 @@ class LoginView(View):
         pwd = request.POST['password']
 
         try:
-            user = Artist.objects.get(pk=uname)
-            if user.password == pwd:
-                request.session['username'] = user.username
-                request.session['isSinger'] = user.isSolo
-                request.session['isActor'] = user.isActor
+            if Artist.object.get(pk=uname):
+                user = Artist.objects.get(pk=uname)
+                if user.password == pwd:
+                    request.session['username'] = user.username
+                    #request.session['isSinger'] = user.isSolo
+                    #request.session['isActor'] = user.isActor
                 return redirect(reverse('main:index'))
         except Artist.DoesNotExist:
             user = None
 
-        return render(request, self.template, {'msg': 'Incorrect username/ password.'})
+        return render(request, self.template, {'msg': 'Incorrect username/ password.'})'''

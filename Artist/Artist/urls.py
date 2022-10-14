@@ -22,5 +22,4 @@ urlpatterns = [
     path('registration/', include('registration.urls')),
     path('promotion/', include('promotion.urls')),
     path('release/', include('release.urls')),
-    path('login/', include('login.urls'))
 ]

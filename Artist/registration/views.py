@@ -48,6 +48,7 @@ class SingerView(View):
 
     def post(self, request):
         formSinger = SingerForm(request.POST)
+        isSinger = request.POST.get('isSinger', True)
         isSolo = request.POST.get('isSolo', False)
         isGroup = request.POST.get('isGroup', False)
         if formSinger.is_valid():
@@ -136,7 +137,7 @@ class SoloGroupView(View):
 
 
 
-class LoginView(View):
+'''class LoginView(View):
     template = 'login.html'
 
     def get(self, request):
@@ -156,7 +157,28 @@ class LoginView(View):
             user = None
 
         return render(request, self.template,{'msg':'Incorrect username/ password.'})
+'''
+class LoginView(View):
+    template = 'login.html'
 
+    def get(self, request):
+        return render(request, self.template)
 
+    def post(self, request):
+        uname = request.POST['username']
+        pwd = request.POST['password']
+
+        try:
+            #if Artist.object.get(pk=uname):
+                user = Artist.objects.get(pk=uname)
+                if user.password == pwd:
+                    request.session['username'] = user.username
+                    #request.session['isSinger'] = user.isSolo
+                    #request.session['isActor'] = user.isActor
+                return redirect(reverse('main:index'))
+        except Artist.DoesNotExist:
+            user = None
+
+        return render(request, self.template, {'msg': 'Incorrect username/ password.'})
 
 
