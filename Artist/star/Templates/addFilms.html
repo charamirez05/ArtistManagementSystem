@@ -5,6 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-
+     <h1>Featured Films</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{formFilm.as_p}}
+            <input type="submit" value="Add">
+        </form>
 </body>
 </html>

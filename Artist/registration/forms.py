@@ -43,8 +43,6 @@ class SingerForm(ModelForm):
         fields = ['username', 'password', 'YearsActive', 'ArtistName', 'Genre', 'isSinger', 'FandomName', 'IsSolo', 'IsGroup']
 
 
-
-
 class ActorForm(ModelForm):
     specializationList = (('T', 'Theatre Acting'), ('TV', 'TV Acting'), ('F', 'Film Acting'), ('VO', 'Voice Over Acting'),
                           ('C', 'Commercials Acting'), ('EB', 'Extra/Background Acting'))

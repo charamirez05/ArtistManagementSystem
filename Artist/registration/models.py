@@ -12,7 +12,6 @@ class Artist(models.Model):
     isSinger = models.BooleanField(default=0) #mo redirect sa lain html
 
 
-
 class Singer(Artist):
     # username = models.CharField(max_length=15, null=False, primary_key=True)
     genreList = (('KP', 'KPop'), ('P', 'Pop'), ('HHR', 'Hip-Hop Rap'), ('C', 'Country'),

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import View
-from .forms import PlatformForm, SingerForm
+from .forms import PlatformForm
 
 # Create your views here.
 

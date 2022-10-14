@@ -1,18 +1,7 @@
 from django.forms import ModelForm
 from django import forms
 
-from .models import Artist
-
-
-class SingerForm(ModelForm):
-    Genre = forms.CharField(widget=forms.TextInput())
-    FandomName = forms.CharField(widget=forms.TextInput())
-    IsSolo = forms.CharField(widget=forms.CheckboxSelectMultiple())
-    IsGroup = forms.CharField(widget=forms.CheckboxSelectMultiple())
-
-    class Meta:
-        model = Artist
-        fields = ['Genre', 'FandomName', 'IsSolo', 'IsGroup']
+from .models import Platform
 
 
 class PlatformForm(ModelForm):
@@ -21,7 +10,7 @@ class PlatformForm(ModelForm):
     Ranking = forms.CharField(widget=forms.NumberInput())
 
     class Meta:
-        model = Artist
+        model = Platform
         fields = ['PlatformName', 'YearEstablished', 'Ranking']
 
 
