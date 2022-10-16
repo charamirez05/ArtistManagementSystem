@@ -3,20 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
+    <style>
+        body 	{
+		background: linear-gradient(100deg, #2980b9, #8e44ad);
+		font-family: Arial;
+		}
+
+		#wrapper { width: 960px;
+	        margin-left: auto;
+	        margin-right: auto; }
+
+		h1		{	color: #FFE6F7;
+
+			font-family: Arial;
+			text-align: center;
+			font-size : 5em;
+		}
+
+		nav 	{   font-weight: bold;
+		font-size: 1.25em;
+		text-align: center;
+		border-radius: 15px;
+		color: #FFE6F7;
+		}
+
+    </style>
 </head>
 <body>
-
+<div id="wrapper">
   {% if request.session.isSinger == True %}
         <h1 style="font-size: 40px">Singer Dashboard</h1>
-        <a href="{% url 'release:addNewSinglesRelease' %}" style="font-size: 20px">Add Singles</a> &nbsp; &nbsp;
-        <a href="{% url 'release:addNewAlbumRelease' %}" style="font-size: 20px">Add Albums</a> &nbsp; &nbsp;
-        <a href="{% url 'promotion:addNewPlatform' %}" style="font-size: 20px">Promote to a Platform</a> &nbsp; &nbsp;
+  <nav>
+        <a href="{% url 'release:addNewSinglesRelease' %}" >Add Singles</a>&nbsp; &nbsp;
+        <a href="{% url 'release:addNewAlbumRelease' %}" >Add Albums</a>&nbsp; &nbsp;
+        <a href="{% url 'promotion:addNewPlatform' %}" >Promote to a Platform</a>&nbsp; &nbsp;
+        <a href="{% url 'main:index' %}" >Log-Out</a>&nbsp; &nbsp;
+  </nav>
+
   {% elif request.session.isActor == True %}
         <h1 style="font-size: 40px">Actor Dashboard</h1>
-        <a href="{% url 'star:addNewFilm' %}" style="font-size: 20px">Add Films</a>
+  <nav>
+        <a href="{% url 'star:addNewFilm' %}" style="font-size: 20px">Add Films</a>&nbsp; &nbsp;
+        <a href="{% url 'main:index' %}" style="font-size: 20px">Log-Out</a>&nbsp; &nbsp;
+      </nav>
   {% endif %}
-
-  <a href="{% url 'main:index' %}" style="font-size: 20px">Log-Out</a>
-
+</div>
 </body>
 </html>

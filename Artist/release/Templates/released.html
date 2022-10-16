@@ -3,14 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <<style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: montserrat;
+            background: linear-gradient(120deg, #2980b9, #8e44ad);
+            height: 100vh;
+            overflow: hidden;
+        }
+        .center{
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background: white;
+            border-radius: 10px;
+        }
+        form{
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+        .center h3{
+            font-family: montserrat;
+            font-size: 180%;
+            text-align: center;
+            padding: 0 0 20px 0;
+            border-bottom: 1px solid silver;
+            color: #905E96;
+        }
+
+        input[type="submit"]{
+            position: relative;
+            width: 50%;
+            height: 30px;
+            top: -8px;
+            left: 80px;
+            border: 1px solid;
+            border-radius: 25px;
+            background: linear-gradient(100deg, #2980b9, #8e44ad);
+            font-family: arial;
+            font-size: 20px;
+        }
+
+
+    </style>
 </head>
 <body>
-
+<div class="center">
+    <h3>Add Release</h3>
   <form action="" method="post">
       {% csrf_token %}
      {{form.as_p}}
     <input type="submit" value="Add">
   </form>
-
+</div>
 </body>
 </html>
