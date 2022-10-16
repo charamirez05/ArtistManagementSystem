@@ -33,7 +33,9 @@
 <div id="wrapper">
     <h1> Artist </h1>
     <nav>
-        <a href = "{% url 'registration:login' %}"> Log-In as Artist</a>
+        <a href = "{% url 'registration:login' %}">  Log-In</a> &nbsp; &nbsp;
+        <a href = "{% url 'registration:createNewSinger' %}"> Register as New Singer</a> &nbsp; &nbsp;
+        <a href = "{% url 'registration:createNewActor' %}"> Register as New Actor</a> &nbsp; &nbsp;
     </nav>
 </div>
 </body>

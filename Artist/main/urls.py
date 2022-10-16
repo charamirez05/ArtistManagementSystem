@@ -5,4 +5,6 @@ app_name ='main'
 
 urlpatterns =[
     path('', view.HomeView.as_view(), name='index'),  # 127.0.0.1/main/
+    path('dashboard', view.DashboardView.as_view(), name='dashboard'),
+
 ]

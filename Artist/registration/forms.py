@@ -1,26 +1,16 @@
-from django.forms import ModelForm, MultiWidget, HiddenInput
+from django.forms import forms, ModelForm
 from django import forms
+from betterforms.multiform import MultiModelForm
 
 from .models import Artist, Singer, Actor
 
 
-
-'''class ArtistForm(ModelForm):
-    ArtistName = forms.CharField(widget=forms.TextInput())
+class SingerForm(ModelForm):
     username = forms.CharField(widget=forms.TextInput())
     password = forms.CharField(widget=forms.PasswordInput())
-    # = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
+    ArtistName = forms.CharField(widget=forms.TextInput())
     YearsActive = forms.CharField(widget=forms.NumberInput())
-    isActor = forms.CheckboxSelectMultiple()
-    isSinger = forms.CheckboxSelectMultiple()
-   # Birthdate = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
-
-    class Meta:
-        model = Artist
-        fields = ['ArtistName', 'username', 'password', 'YearsActive', 'isActor', 'isSinger']'''
-
-
-class SingerForm(ModelForm):
+    isSinger = forms.BooleanField(widget = forms.HiddenInput(), required=False, initial=True)
     genreList = (('KP', 'KPop'), ('P', 'Pop'), ('HHR', 'Hip-Hop Rap'), ('C', 'Country'),
                  ('RB', 'Rhythm and Blues'), ('F', 'Folk'), ('J', 'Jazz'), ('HM', 'Heavy Metal'),
                  ('EDM', 'Electronic Dance Music'), ('S', 'Soul'), ('F', 'Funk'), ('R', 'Reggae'),
@@ -28,59 +18,32 @@ class SingerForm(ModelForm):
                  ('T', 'Techno'), ('IR', 'Indie Rock'), ('G', 'Grunge'), ('A', 'Ambient'),
                  ('R', 'Reggae'), ('S', 'Soul'), ('F', 'Funk'), ('R', 'Reggae'), ('G', 'Gospel'),
                  ('LM', 'Latin Music'), ('GM', 'Grime'), ('T', 'Trap'), ('PK', 'Psychedelic Rock'))
-    username = forms.CharField(widget=forms.TextInput())
-    password = forms.CharField(widget=forms.PasswordInput())
-    ArtistName = forms.CharField(widget=forms.TextInput())
-    YearsActive = forms.CharField(widget=forms.NumberInput())
-    Genre = forms.CharField(widget=forms.Select(choices=genreList))
+    instrumentList = (('AG', 'Acoustic Guitar'), ('BJ', 'Banjo'), ('B', 'Bass'), ('CL', 'Cello'), ('C', 'Clarinet'),
+                       ('EG', 'Electric Guitar'), ('D', 'Drums'), ('F', 'Flute'), ('PKO', 'Piano/Keyboard/Organ'),
+                      ('S', 'Saxophone'),  ('T', 'Trumpet'),  ('U', 'Ukelele'), ('V', 'Voice only'), ('V', 'Violin'))
+
+    Instruments = forms.MultipleChoiceField(choices=instrumentList)
+    Genre = forms.MultipleChoiceField(choices=genreList)
     FandomName = forms.CharField(widget=forms.TextInput())
-    isSinger = forms.BooleanField(widget=forms.HiddenInput(), required=False, initial=True)
-    IsSolo = forms.CheckboxSelectMultiple()
-    IsGroup = forms.CheckboxSelectMultiple()
+
 
     class Meta:
         model = Singer
-        fields = ['username', 'password', 'YearsActive', 'ArtistName', 'Genre', 'isSinger', 'FandomName', 'IsSolo', 'IsGroup']
+        fields = ['username', 'password', 'ArtistName', 'YearsActive', 'Genre', 'FandomName', 'Instruments', 'isSinger']
 
 
 class ActorForm(ModelForm):
-    specializationList = (('T', 'Theatre Acting'), ('TV', 'TV Acting'), ('F', 'Film Acting'), ('VO', 'Voice Over Acting'),
-                          ('C', 'Commercials Acting'), ('EB', 'Extra/Background Acting'))
     username = forms.CharField(widget=forms.TextInput())
     password = forms.CharField(widget=forms.PasswordInput())
     ArtistName = forms.CharField(widget=forms.TextInput())
     YearsActive = forms.CharField(widget=forms.NumberInput())
     isActor = forms.BooleanField(widget=forms.HiddenInput(), required=False, initial=True)
-    specialization = forms.CharField(widget=forms.Select(choices=specializationList))
+    specializationList = (('T', 'Theatre Acting'), ('TV', 'TV Acting'), ('F', 'Film Acting'),
+                          ('VO', 'Voice Over Acting'), ('C', 'Commercials Acting'), ('EB', 'Extra/Background Acting'))
+    specialization = forms.MultipleChoiceField(choices=specializationList)
     nationality = forms.CharField(widget=forms.TextInput())
 
     class Meta:
         model = Actor
-        fields = ['username', 'password', 'YearsActive', 'ArtistName', 'isActor', 'nationality', 'specialization']
+        fields = ['username', 'password', 'ArtistName', 'YearsActive', 'nationality', 'specialization', 'isActor']
 
-
-class SoloArtistForm(ModelForm):
-    StageName = forms.CharField(widget=forms.TextInput())
-
-    class Meta:
-        model = Artist
-        fields = ['StageName']
-
-    '''class Instruments(models.Model):
-        soloArtist = models.ForeignKey(SoloArtist, on_delete=models.CASCADE)
-        instruments = models.CharField(max_length=30)'''
-
-
-class GroupArtistForm(ModelForm):
-    dateFormed = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
-
-    class Meta:
-        model = Artist
-        fields = ['dateFormed']
-
-    '''class GroupMembers(models.Model):
-        GroupArtist = models.ForeignKey(GroupArtist, on_delete=models.CASCADE)
-        GroupMembers = models.CharField(max_length=100)
-
-        class Meta:
-            unique_together = ('GroupArtist', 'GroupMembers')'''

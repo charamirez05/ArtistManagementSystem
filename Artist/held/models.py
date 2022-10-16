@@ -1,6 +1,5 @@
 from django.db import models
 from multiselectfield import MultiSelectField
-
 # Create your models here.
 
 
@@ -33,22 +32,10 @@ class Singer(Artist):
     FandomName = models.CharField(max_length=50, null=False)
 
 
-class Single(models.Model):
-    singleID = models.AutoField(primary_key=True)
-    singleName = models.CharField(max_length=30)
-    recordedDate = models.DateField()
-    releasedDate = models.DateField()
-    genre = models.CharField(max_length=20)
-    composer = models.CharField(max_length=30)
-    producer = models.CharField(max_length=30)
-    singer = models.ForeignKey(Singer, on_delete=models.CASCADE)
-
-
-class Album(models.Model):
-    albumID = models.AutoField(primary_key=True)
-    albumName = models.CharField(max_length=30)
-    releasedDate = models.DateField()
-    genre = models.CharField(max_length=30)
-    dateRecorded = models.DateField()
-    singles = models.ManyToManyField(Single)
-    singer = models.ForeignKey(Singer, on_delete=models.CASCADE)
+class Concert (models.Model):
+    ConcertName = models.CharField(max_length=100)
+    VenueName = models.CharField(max_length=50)
+    MaxParticipants = models.IntegerField()
+    ConcertDate = models.DateField()
+    Location = models.CharField(max_length=100)
+    singer = models.ManyToManyField(Singer)

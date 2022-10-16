@@ -10,3 +10,10 @@ class HomeView(View):
     def get(self, request):
         return render(request, self.template)
 
+
+
+class DashboardView(View):
+    template = 'dashboard.html'
+
+    def get(self, request):
+        return render(request, self.template)

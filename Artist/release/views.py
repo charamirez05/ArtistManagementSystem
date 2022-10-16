@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import View
-from .forms import AlbumForm, SingerForm, SinglesForm
+from .forms import AlbumForm, SinglesForm
 
 # Create your views here.
 
@@ -28,7 +28,7 @@ class SinglesView(View):
         return render(request, self.template, {'form': form})
 
     def post(self, request):
-        form = SingerForm(request.POST)
+        form = SinglesForm(request.POST)
         if form.is_valid():
             form.save()
             # return redirect(reverse('registration:index'))

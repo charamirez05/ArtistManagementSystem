@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'promotion',
     'release',
     'star',
-    'login',
     'main',
+    'held',
 ]
 
 MIDDLEWARE = [
