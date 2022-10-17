@@ -1,6 +1,6 @@
 from django.forms import forms, ModelForm
 from django import forms
-from betterforms.multiform import MultiModelForm
+
 
 from .models import Artist, Singer, Actor
 
