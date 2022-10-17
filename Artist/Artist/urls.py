@@ -21,6 +21,7 @@ urlpatterns = [
     path('main/', include('main.urls')),
     path('registration/', include('registration.urls')),
     path('promotion/', include('promotion.urls')),
-    path('release/', include('release.urls')),
     path('star/', include('star.urls')),
+    path('held/', include('held.urls')),
+    path('release/', include('release.urls')),
 ]

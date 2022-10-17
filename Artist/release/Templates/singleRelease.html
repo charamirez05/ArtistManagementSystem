@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+        <style>
+        select>option {
+            width: 100px;
+            height: 30px;
+            border: 1px solid #999999;
+
+    </style>
 </head>
 <body>
 
   <form action="" method="post">
       {% csrf_token %}
-     {{form.as_p}}
+     {{formSingles.as_p}}
     <input type="submit" value="Add">
   </form>
 

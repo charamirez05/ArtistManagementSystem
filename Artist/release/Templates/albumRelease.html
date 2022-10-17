@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-        <style>
+    <style>
         select>option {
             width: 100px;
             height: 30px;
             border: 1px solid #999999;
 
     </style>
+
 </head>
 <body>
-    <h1>Add New Actor</h1>
-  <form action="" method="post">
-      {% csrf_token %}
-     {{formActor.as_p}}
-    <input type="submit" value="Add">
-  </form>
+      <form action="" method="post">
+          {% csrf_token %}
+         {{formAlbum.as_p}}
+        <input type="submit" value="Add">
+      </form>
 
 </body>
 </html>

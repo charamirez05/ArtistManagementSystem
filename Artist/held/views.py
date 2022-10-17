@@ -1,13 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views import View
 from .forms import ConcertForm
-from .models import Singer
+from registration.models import Singer
+
 
 # Create your views here.
-
-class FilmView(View):
-    template = 'addFilms.html'
-
+class ConcertView(View):
+    template = 'concert.html'
     def get(self, request):
         formConcert = ConcertForm()
         return render(request, self.template, {'formConcert': formConcert})
@@ -17,7 +17,7 @@ class FilmView(View):
         concertSinger = Singer.objects.get(pk=request.session['username'])
         if formConcert.is_valid():
             concert = formConcert.save()
-            concert.singer.add(concertSinger.username)
+            singer = concert.singer.add(concertSinger)
+            return redirect(reverse('main:dashboard'))
 
         return render(request, self.template, {'formConcert': formConcert})
-

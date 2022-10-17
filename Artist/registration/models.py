@@ -10,6 +10,8 @@ class Artist(models.Model):
     ArtistName = models.CharField(max_length=30, null=False)
     password = models.CharField(max_length=30, null=False)
     YearsActive = models.IntegerField(default=1, null=False)
+    birthDate = models.DateField()
+    debutDate = models.DateField()
     isActor = models.BooleanField(default=0)
     isSinger = models.BooleanField(default=0)
 

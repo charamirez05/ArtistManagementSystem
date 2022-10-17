@@ -8,15 +8,16 @@
 
   {% if request.session.isSinger == True %}
         <h1 style="font-size: 40px">Singer Dashboard</h1>
-        <a href="{% url 'release:addNewSinglesRelease' %}" style="font-size: 20px">Add Singles</a> &nbsp; &nbsp;
         <a href="{% url 'release:addNewAlbumRelease' %}" style="font-size: 20px">Add Albums</a> &nbsp; &nbsp;
+        <a href="{% url 'release:addNewSinglesRelease' %}" style="font-size: 20px">Add Singles</a> &nbsp; &nbsp;
         <a href="{% url 'promotion:addNewPlatform' %}" style="font-size: 20px">Promote to a Platform</a> &nbsp; &nbsp;
+        <a href="{% url 'held:addNewConcert' %}" style="font-size: 20px">Create Concert</a> &nbsp; &nbsp;
   {% elif request.session.isActor == True %}
         <h1 style="font-size: 40px">Actor Dashboard</h1>
-        <a href="{% url 'star:addNewFilm' %}" style="font-size: 20px">Add Films</a>
+        <a href="{% url 'star:addNewFilm' %}" style="font-size: 20px">Add Films</a> &nbsp; &nbsp;
   {% endif %}
 
-  <a href="{% url 'main:index' %}" style="font-size: 20px">Log-Out</a>
+  <a href="{% url 'main:index' %}" style="font-size: 20px">Log-Out</a> &nbsp; &nbsp;
 
 </body>
 </html>

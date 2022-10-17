@@ -55,11 +55,12 @@ class LoginView(View):
     def post(self, request):
         uname = request.POST['username']
         pwd = request.POST['password']
+        print(uname)
 
         try:
             user = Artist.objects.get(pk=uname)
             if user.password == pwd:
-                request.session['username'] = user.isSinger
+                request.session['username'] = uname
                 request.session['isSinger'] = user.isSinger
                 request.session['isActor'] = user.isActor
                 if request.session['isSinger']:

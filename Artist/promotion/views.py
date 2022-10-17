@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views import View
 from .forms import PlatformForm
 from registration.models import Singer
@@ -11,14 +12,15 @@ class PlatformView(View):
     template = 'promotes.html'
 
     def get(self, request):
-        form = PlatformForm()
-        return render(request, self.template, {'form': form})
+        formPlaform = PlatformForm()
+        return render(request, self.template, {'formPlaform': formPlaform})
 
     def post(self, request):
         formPlaform = PlatformForm(request.POST)
-        platformSinger = Singer.object.get(pk=request.session['username'])
+        platformSinger = Singer.objects.get(pk=request.session['username'])
         if formPlaform.is_valid():
             platform = formPlaform.save()
-            platform.singer.add(platformSinger.username)
-        return render(request, self.template, {'formPlaform': formPlaform})
+            singer = platform.singer.add(platformSinger)
+            return redirect(reverse('main:dashboard'))
 
+        return render(request, self.template, {'formPlaform': formPlaform})
