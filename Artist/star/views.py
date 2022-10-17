@@ -1,3 +1,4 @@
+from django.db import connection
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
@@ -24,6 +25,16 @@ class FilmView(View):
             return redirect(reverse('main:dashboard'))
 
         return render(request, self.template, {'formFilm': formFilm})
+
+
+class DisplayFilmView(View):
+    template = 'displayFilm.html'
+
+    def get(self,request):
+        cursor = connection.cursor()
+        cursor.callproc('dbartist.displayFilm',[request.session['username']])
+        film = cursor.fetchall()
+        return render(request, self.template, {'film':film})
 
 
 

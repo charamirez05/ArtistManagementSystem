@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Concerts</title>
+</head>
+<body>
+        <h1>Concerts</h1>
+        <table cellspacing="5" border="1">
+            <th>Platform Name</th>
+            <th>Year Established</th>
+            <th>Singer Ranking</th>
+            {% for p in platform %}
+                <tr>
+                    <td>{{p.0}}</td>
+                    <td>{{p.1}}</td>
+                    <td>{{p.2}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+  <br><br><a href="{% url 'main:dashboard' %}">Back to Dashboard</a>
+
+</body>
+</html>

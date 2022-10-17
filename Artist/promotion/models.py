@@ -8,5 +8,5 @@ from registration.models import Singer
 class Platform(models.Model):
     platformName = models.CharField(max_length=30)
     yearEstablished = models.CharField(max_length=4)
-    ranking = models.IntegerField()
+    ranking = models.IntegerField(default=1)
     singer = models.ManyToManyField(Singer)

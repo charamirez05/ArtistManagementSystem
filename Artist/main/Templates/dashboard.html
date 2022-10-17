@@ -9,12 +9,18 @@
   {% if request.session.isSinger == True %}
         <h1 style="font-size: 40px">Singer Dashboard</h1>
         <a href="{% url 'release:addNewAlbumRelease' %}" style="font-size: 20px">Add Albums</a> &nbsp; &nbsp;
+        <a href="{% url 'release:displayAlbum' %}" style="font-size: 20px">Display Albums</a> &nbsp; &nbsp;
         <a href="{% url 'release:addNewSinglesRelease' %}" style="font-size: 20px">Add Singles</a> &nbsp; &nbsp;
+        <a href="{% url 'release:displaySingle' %}" style="font-size: 20px">Display Singles</a> &nbsp; &nbsp;
         <a href="{% url 'promotion:addNewPlatform' %}" style="font-size: 20px">Promote to a Platform</a> &nbsp; &nbsp;
+        <a href="{% url 'promotion:displayPlatform' %}" style="font-size: 20px">Display Platforms</a> &nbsp; &nbsp;
         <a href="{% url 'held:addNewConcert' %}" style="font-size: 20px">Create Concert</a> &nbsp; &nbsp;
+        <a href="{% url 'held:displayConcert' %}" style="font-size: 20px">Display Concerts</a> &nbsp; &nbsp;
+
   {% elif request.session.isActor == True %}
         <h1 style="font-size: 40px">Actor Dashboard</h1>
         <a href="{% url 'star:addNewFilm' %}" style="font-size: 20px">Add Films</a> &nbsp; &nbsp;
+        <a href="{% url 'star:displayFilm' %}" style="font-size: 20px">Display Films</a> &nbsp; &nbsp;
   {% endif %}
 
   <a href="{% url 'main:index' %}" style="font-size: 20px">Log-Out</a> &nbsp; &nbsp;

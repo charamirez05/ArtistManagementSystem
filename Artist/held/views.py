@@ -1,3 +1,4 @@
+from django.db import connection
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
@@ -21,3 +22,12 @@ class ConcertView(View):
             return redirect(reverse('main:dashboard'))
 
         return render(request, self.template, {'formConcert': formConcert})
+
+class DisplayConcert(View):
+    template = 'displayConcert.html'
+
+    def get(self,request):
+        cursor = connection.cursor()
+        cursor.callproc('dbartist.displayConcert',[request.session['username']])
+        concert = cursor.fetchall()
+        return render(request, self.template, {'concert':concert})

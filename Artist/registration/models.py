@@ -33,6 +33,9 @@ class Singer(Artist):
     Instruments = MultiSelectField(choices=instrumentList, max_length=20)
     FandomName = models.CharField(max_length=50, null=False)
 
+    def __str__(self):
+        return str(self.ArtistName)
+
 
 class Actor(Artist):
     specializationList = (('T', 'Theatre Acting'), ('TV', 'TV Acting'), ('F', 'Film Acting'), ('VO', 'Voice Over Acting'),

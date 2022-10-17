@@ -1,3 +1,4 @@
+from django.db import connection
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
@@ -47,6 +48,27 @@ class SinglesView(View):
             album = single.albums.add(singleAlbum)
             return redirect(reverse('main:dashboard'))
         return render(request, self.template, {'formSingles': formSingles})
+
+
+class DisplayAlbumView(View):
+    template = 'displayAlbum.html'
+
+    def get(self,request):
+        cursor = connection.cursor()
+        cursor.callproc('dbartist.displayAlbum',[request.session['username']])
+        album = cursor.fetchall()
+        return render(request, self.template, {'album':album})
+
+
+class DisplaySingleView(View):
+    template = 'displaySingle.html'
+
+    def get(self,request):
+        cursor = connection.cursor()
+        cursor.callproc('dbartist.displaySingle',[request.session['username']])
+        single = cursor.fetchall()
+        return render(request, self.template, {'single':single})
+
 
 
 

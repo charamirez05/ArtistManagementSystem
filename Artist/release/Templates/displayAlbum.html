@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Albums</title>
+</head>
+<body>
+        <h1>Albums</h1>
+        <table cellspacing="5" border="1">
+            <th>Album Name</th>
+            <th>Released Date</th>
+            <th>Genre</th>
+            <th>Date Recorded</th>
+            {% for a in album %}
+                <tr>
+                    <td>{{a.0}}</td>
+                    <td>{{a.1}}</td>
+                    <td>{{a.2}}</td>
+                    <td>{{a.3}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+  <br><br> <a href="{% url 'main:dashboard' %}">Back to Dashboard</a>
+
+</body>
+</html>

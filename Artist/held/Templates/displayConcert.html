@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Concerts</title>
+</head>
+<body>
+        <h1>Concerts</h1>
+        <table cellspacing="5" border="1">
+            <th>Concert Name</th>
+            <th>Venue Name</th>
+            <th>Max Participants</th>
+            <th>Concert Date</th>
+            <th>Location</th>
+            {% for c in concert %}
+                <tr>
+                    <td>{{c.0}}</td>
+                    <td>{{c.1}}</td>
+                    <td>{{c.2}}</td>
+                    <td>{{c.3}}</td>
+                    <td>{{c.4}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+  <br><br><a href="{% url 'main:dashboard' %}">Back to Dashboard</a>
+
+</body>
+</html>

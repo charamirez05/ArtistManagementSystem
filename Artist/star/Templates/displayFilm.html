@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Concerts</title>
+</head>
+<body>
+        <h1>Concerts</h1>
+        <table cellspacing="5" border="1">
+            <th>Film Name</th>
+            <th>Release Date</th>
+            <th>Actor Role</th>
+            <th>Director</th>
+            {% for f in film %}
+                <tr>
+                    <td>{{f.0}}</td>
+                    <td>{{f.1}}</td>
+                    <td>{{f.2}}</td>
+                    <td>{{f.3}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+  <br><br><a href="{% url 'main:dashboard' %}">Back to Dashboard</a>
+
+</body>
+</html>
