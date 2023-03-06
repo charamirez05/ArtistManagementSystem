@@ -3,27 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
+    <style>
+        body 	{
+		background: linear-gradient(100deg, #2980b9, #8e44ad);
+		font-family: Arial;
+		}
+
+		#wrapper {
+		    width: 960px;
+	        margin-left: auto;
+	        margin-right: auto; }
+
+		h1 {
+		    color: #FFE6F7;
+			font-family: Arial;
+			text-align: center;
+			font-size : 5em;
+		}
+
+		nav {
+            font-weight: bold;
+            font-size: 1.25em;
+            text-align: center;
+            border-radius: 15px;
+            color: #FFE6F7;
+		}
+		a {
+		    color: #FFFFFF;
+		}
+
+    </style>
 </head>
 <body>
-
+<div id="wrapper">
   {% if request.session.isSinger == True %}
-        <h1 style="font-size: 40px">Singer Dashboard</h1>
-        <a href="{% url 'release:addNewAlbumRelease' %}" style="font-size: 20px">Add Albums</a> &nbsp; &nbsp;
-        <a href="{% url 'release:displayAlbum' %}" style="font-size: 20px">Display Albums</a> &nbsp; &nbsp;
-        <a href="{% url 'release:addNewSinglesRelease' %}" style="font-size: 20px">Add Singles</a> &nbsp; &nbsp;
-        <a href="{% url 'release:displaySingle' %}" style="font-size: 20px">Display Singles</a> &nbsp; &nbsp;
-        <a href="{% url 'promotion:addNewPlatform' %}" style="font-size: 20px">Promote to a Platform</a> &nbsp; &nbsp;
-        <a href="{% url 'promotion:displayPlatform' %}" style="font-size: 20px">Display Platforms</a> &nbsp; &nbsp;
-        <a href="{% url 'held:addNewConcert' %}" style="font-size: 20px">Create Concert</a> &nbsp; &nbsp;
-        <a href="{% url 'held:displayConcert' %}" style="font-size: 20px">Display Concerts</a> &nbsp; &nbsp;
+    <h1 style="font-size: 40px">Singer Dashboard</h1> <br><br>
+    <nav>
+        <a href="{% url 'release:addNewAlbumRelease' %}" >Add Albums</a>&emsp; &emsp; &emsp;
+        <a href="{% url 'release:displayAlbum' %}" >Display Albums</a> <br> <br> <br>
+
+        <a href="{% url 'release:addNewSinglesRelease' %}" >Add Singles</a>&emsp; &emsp; &emsp;
+        <a href="{% url 'release:displaySingle' %}" >Display Singles</a><br> <br> <br>
+
+        <a href="{% url 'promotion:addNewPlatform' %}" >Promote to a Platform</a>
+        &emsp; &emsp; &emsp; <a href="{% url 'promotion:displayPlatform' %}" >Display Platforms</a> <br> <br> <br>
+
+        <a href="{% url 'held:addNewConcert' %}" >Create Concert</a>&emsp; &emsp; &emsp;
+        <a href="{% url 'held:displayConcert' %}" >Display Concerts</a><br> <br> <br>
+    </nav>
+
 
   {% elif request.session.isActor == True %}
-        <h1 style="font-size: 40px">Actor Dashboard</h1>
-        <a href="{% url 'star:addNewFilm' %}" style="font-size: 20px">Add Films</a> &nbsp; &nbsp;
-        <a href="{% url 'star:displayFilm' %}" style="font-size: 20px">Display Films</a> &nbsp; &nbsp;
+    <h1 style="font-size: 40px">Actor Dashboard</h1><br><br>
+    <nav>
+        <a href="{% url 'star:addNewFilm' %}" style="font-size: 20px">Add Films</a>&nbsp; &nbsp;
+        <a href="{% url 'star:displayFilm' %}" style="font-size: 20px">Display Films</a>&nbsp; <br> <br> <br>
+    </nav>
   {% endif %}
 
-  <a href="{% url 'main:index' %}" style="font-size: 20px">Log-Out</a> &nbsp; &nbsp;
-
+    <nav>
+        <a href="{% url 'main:index' %}" style="font-size: 20px">Log-Out</a>&nbsp; &nbsp;
+    </nav>
+</div>
 </body>
 </html>

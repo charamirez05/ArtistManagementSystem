@@ -9,7 +9,7 @@ from .models import Album, Single
 class AlbumForm(ModelForm):
     albumName = forms.CharField(widget=forms.TextInput())
 
-    releasedDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
+    releasedDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1950, 2023)))
     genreList = (('KP', 'KPop'), ('P', 'Pop'), ('HHR', 'Hip-Hop Rap'), ('C', 'Country'),
                  ('RB', 'Rhythm and Blues'), ('F', 'Folk'), ('J', 'Jazz'), ('HM', 'Heavy Metal'),
                  ('EDM', 'Electronic Dance Music'), ('S', 'Soul'), ('F', 'Funk'), ('R', 'Reggae'),
@@ -18,7 +18,7 @@ class AlbumForm(ModelForm):
                  ('R', 'Reggae'), ('S', 'Soul'), ('F', 'Funk'), ('R', 'Reggae'), ('G', 'Gospel'),
                  ('LM', 'Latin Music'), ('GM', 'Grime'), ('T', 'Trap'), ('PK', 'Psychedelic Rock'))
     genre = forms.MultipleChoiceField(choices=genreList)
-    dateRecorded = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
+    dateRecorded = forms.DateField(widget=forms.SelectDateWidget(years=range(1950, 2023)))
 
     class Meta:
         model = Album
@@ -28,8 +28,8 @@ class AlbumForm(ModelForm):
 
 class SinglesForm(ModelForm):
     singleName = forms.CharField(widget=forms.TextInput())
-    recordedDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
-    releasedDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
+    recordedDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1950, 2023)))
+    releasedDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1950, 2023)))
     genreList = (('KP', 'KPop'), ('P', 'Pop'), ('HHR', 'Hip-Hop Rap'), ('C', 'Country'),
                  ('RB', 'Rhythm and Blues'), ('F', 'Folk'), ('J', 'Jazz'), ('HM', 'Heavy Metal'),
                  ('EDM', 'Electronic Dance Music'), ('S', 'Soul'), ('F', 'Funk'), ('R', 'Reggae'),

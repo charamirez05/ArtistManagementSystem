@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <<style>
+    <style>
         body{
             margin: 0;
             padding: 0;
@@ -45,6 +45,21 @@
             background: linear-gradient(100deg, #2980b9, #8e44ad);
             font-family: arial;
             font-size: 20px;
+            color: #FFFFFF;
+        }
+
+        a{
+            position: relative;
+            width: 100%;
+            height: 80px;
+            top: -13px;
+            left: 170px;
+            border: 1px solid;
+            border-radius: 30px;
+            background: linear-gradient(100deg, #2980b9, #8e44ad);
+            font-family: arial;
+            font-size: 20px;
+            color: #FFFFFF;
         }
 
 
@@ -52,12 +67,13 @@
 </head>
 <body>
 <div class="center">
-     <h3>Featured Films</h3>
+     <h3>Add Featured Film</h3>
         <form action="" method="post">
             {% csrf_token %}
             {{formFilm.as_p}}
-            <input type="submit" value="Add">
+           <br> <input type="submit" value="Add">
         </form>
+        <br><a href="{% url 'main:dashboard' %}">Cancel</a>
 </div>
 </body>
 </html>

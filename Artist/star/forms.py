@@ -6,7 +6,7 @@ from .models import Film
 
 class FilmForm(ModelForm):
     filmname = forms.CharField(widget=forms.TextInput())
-    dateRelease = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
+    dateRelease = forms.DateField(widget=forms.SelectDateWidget(years=range(1950, 2023)))
     actorRole = forms.CharField(widget=forms.TextInput())
     director = forms.CharField(widget=forms.TextInput())
 

@@ -10,8 +10,8 @@ class SingerForm(ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
     ArtistName = forms.CharField(widget=forms.TextInput())
     YearsActive = forms.CharField(widget=forms.NumberInput())
-    birthDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
-    debutDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
+    birthDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1950, 2023)))
+    debutDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1950, 2023)))
     isSinger = forms.BooleanField(widget = forms.HiddenInput(), required=False, initial=True)
     genreList = (('KP', 'KPop'), ('P', 'Pop'), ('HHR', 'Hip-Hop Rap'), ('C', 'Country'),
                  ('RB', 'Rhythm and Blues'), ('F', 'Folk'), ('J', 'Jazz'), ('HM', 'Heavy Metal'),
@@ -39,8 +39,8 @@ class ActorForm(ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
     ArtistName = forms.CharField(widget=forms.TextInput())
     YearsActive = forms.CharField(widget=forms.NumberInput())
-    birthDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
-    debutDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, 2023)))
+    birthDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1950, 2023)))
+    debutDate = forms.DateField(widget=forms.SelectDateWidget(years=range(1950, 2023)))
     isActor = forms.BooleanField(widget=forms.HiddenInput(), required=False, initial=True)
     specializationList = (('T', 'Theatre Acting'), ('TV', 'TV Acting'), ('F', 'Film Acting'),
                           ('VO', 'Voice Over Acting'), ('C', 'Commercials Acting'), ('EB', 'Extra/Background Acting'))

@@ -3,9 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <title>Display Singles</title>
+    <style>
+         body{
+            margin: 0;
+            padding: 0;
+            font-family: montserrat;
+            background: linear-gradient(120deg, #2980b9, #8e44ad);
+            height: 100vh;
+            overflow: hidden;
+        }
+        .center{
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            background: white;
+            border-radius: 10px;
+        }
+        .center h3{
+            font-family: montserrat;
+            font-size: 180%;
+            text-align: center;
+            padding: 0 0 20px 0;
+            border-bottom: 1px solid silver;
+            color: #905E96;
+        }
+        table{
+            padding: 0 40px;
+            position: relative;
+            left: 55px;
+            align: center;
+            border-collapse: collapse
+        }
+        th{
+            padding: 10px;
+        }
+        td{
+            padding:10px;
+        }
+
+        a{
+            font-family: montserrat;
+            position: relative;
+            width: 150%;
+            height: 100px;
+            top: -13px;
+            left: 280px;
+            font-family: arial;
+            font-size: 15px;
+            color: linear-gradient(120deg, #2980b9, #8e44ad)
+        }
+
+    </style>
 </head>
 <body>
-        <h1>Singles</h1>
+<div class = "center">
+        <h3>Released Singles</h3>
         <table cellspacing="3" border="1">
             <th>Single Name</th>
             <th>Recorded Date</th>
@@ -25,6 +79,7 @@
             {% endfor %}
         </table>
   <br> <br> <a href="{% url 'main:dashboard' %}">Back to Dashboard</a>
+</div>
 
 </body>
 </html>
